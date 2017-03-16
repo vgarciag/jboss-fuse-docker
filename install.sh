@@ -21,6 +21,7 @@ curl -O ${FUSE_DISTRO_URL}
 jar -xvf ${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip
 rm ${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip
 mv jboss-fuse-${FUSE_VERSION} jboss-fuse
+ls -l jboss-fuse
 chmod a+x jboss-fuse/bin/*
 rm jboss-fuse/bin/*.bat jboss-fuse/bin/start jboss-fuse/bin/stop jboss-fuse/bin/status jboss-fuse/bin/patch
 
