@@ -24,7 +24,8 @@ RUN mkdir -p /opt/jboss/jboss-fuse/etc
 COPY install.sh /opt/jboss/install.sh
 COPY users.properties /opt/jboss/jboss-fuse/etc/
 
-RUN /opt/jboss/install.sh
+RUN chmod a+x /opt/jboss/install.sh && \
+    /opt/jboss/install.sh
 
 EXPOSE 8181 8101 1099 44444 61616 1883 5672 61613 61617 8883 5671 61614
 
