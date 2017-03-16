@@ -7,11 +7,10 @@
 # FUSE_DISTRO_URL=http://origin-repository.jboss.org/nexus/content/groups/ea/org/jboss/fuse/${FUSE_ARTIFACT_ID}/${FUSE_VERSION}/${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip
 # In artifactory the jboss fuse 6.2.0 has been compiled by Perraca
 
-export FUSE_DISTRO_URL="http://artifactory.hi.inet/artifactory/yum-iot-release/thirdparties/jboss-fuse/${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip"
+export FUSE_DISTRO_URL="${FUSE_STORAGE_URL}/${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip"
 
 # Lets fail fast if any command in this script does succeed.
 set -e
-set -x
 
 #
 # Lets switch to the /opt/jboss dir

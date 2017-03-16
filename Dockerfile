@@ -5,8 +5,11 @@ MAINTAINER Hiram Chirino <hchirino@redhat.com>
 
 # Set the and FUSE_ARTIFACT_ID and FUSE_VERSION env variables
 ENV FUSE_ARTIFACT_ID jboss-fuse-full
-# ENV FUSE_VERSION 6.2.1.redhat-186 #  http://artifactory.hi.inet/artifactory/yum-iot-release/thirdparties/jboss-fuse/
-ENV FUSE_VERSION 6.2.1.redhat-186 #  http://artifactory.hi.inet/artifactory/yum-iot-release/thirdparties/jboss-fuse/
+# ENV FUSE_VERSION 6.2.0.redhat-133
+ENV FUSE_VERSION 6.2.1.redhat-186
+
+#Location at artifactory
+ENV FUSE_STORAGE_URL http://artifactory.hi.inet/artifactory/yum-iot-release/thirdparties/jboss-fuse
 
 # If the container is launched with re-mapped ports, these ENV vars should
 # be set to the remapped values.
