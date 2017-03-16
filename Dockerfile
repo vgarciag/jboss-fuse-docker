@@ -5,7 +5,7 @@ MAINTAINER Hiram Chirino <hchirino@redhat.com>
 
 # Set the and FUSE_ARTIFACT_ID and FUSE_VERSION env variables
 ENV FUSE_ARTIFACT_ID jboss-fuse-full
-# ENV FUSE_VERSION 6.2.0.redhat-133
+#ENV FUSE_VERSION 6.2.0.redhat-133
 ENV FUSE_VERSION 6.2.1.redhat-186
 
 #Location at artifactory
@@ -25,13 +25,13 @@ ENV FUSE_PUBLIC_STOMP_SSL_PORT 61614
 USER root
 
 # Install fuse in the image.
-RUN mkdir -p /opt/jboss/jboss-fuse/etc
+RUN mkdir -p /opt/jboss
 
 COPY install.sh /opt/jboss/install.sh
-COPY users.properties /opt/jboss/jboss-fuse/etc/
+COPY users.properties /opt/jboss/users.properties
 
-RUN chmod 755 /opt/jboss/install.sh
-RUN /opt/jboss/install.sh
+RUN chmod 755 /opt/jboss/install.sh && \
+    /opt/jboss/install.sh
 
 EXPOSE 8181 8101 1099 44444 61616 1883 5672 61613 61617 8883 5671 61614
 

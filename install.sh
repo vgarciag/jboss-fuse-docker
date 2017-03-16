@@ -18,12 +18,15 @@ set -e
 cd /opt/jboss
 # Download and extract the distro
 curl -O ${FUSE_DISTRO_URL}
-jar -xvf ${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip
+echo "----> Uncompresing: ${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip into ${PWD}. This may take a few seconds"
+jar -xvf ${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip > /dev/null
+echo "----> Deletion of ${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip"
 rm ${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip
+echo "----> rename directory jboss-fuse-${FUSE_VERSION} into jboss-fuse"
 mv jboss-fuse-${FUSE_VERSION} jboss-fuse
-ls -l jboss-fuse
 chmod a+x jboss-fuse/bin/*
-rm jboss-fuse/bin/*.bat jboss-fuse/bin/start jboss-fuse/bin/stop jboss-fuse/bin/status jboss-fuse/bin/patch
+rm jboss-fuse/bin/*.bat
+mv users.properties jboss-fuse/etc/
 
 # Lets remove some bits of the distro which just add extra weight in a docker image.
 rm -rf jboss-fuse/extras
