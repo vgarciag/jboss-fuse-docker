@@ -17,7 +17,7 @@ set -e
 # Lets switch to the /opt/jboss dir
 #
 cd /opt/jboss
-
+echo ${FUSE_DISTRO_URL}
 # Download and extract the distro
 curl -O ${FUSE_DISTRO_URL}
 jar -xvf ${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip
