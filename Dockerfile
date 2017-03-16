@@ -3,7 +3,8 @@ FROM jboss/base-jdk:7
 
 MAINTAINER Hiram Chirino <hchirino@redhat.com>
 
-# Set the FUSE_VERSION env variable
+# Set the and FUSE_ARTIFACT_ID and FUSE_VERSION env variables
+ENV FUSE_ARTIFACT_ID jboss-fuse-full
 # ENV FUSE_VERSION 6.2.1.redhat-186 #  http://artifactory.hi.inet/artifactory/yum-iot-release/thirdparties/jboss-fuse/
 ENV FUSE_VERSION 6.2.1.redhat-186 #  http://artifactory.hi.inet/artifactory/yum-iot-release/thirdparties/jboss-fuse/
 

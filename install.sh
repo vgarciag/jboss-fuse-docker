@@ -4,20 +4,19 @@
 # to reduce the number of UFS layers that are needed for the Docker container.
 #
 
-# Adjust the following env vars if needed.
-FUSE_ARTIFACT_ID=jboss-fuse-full
 # FUSE_DISTRO_URL=http://origin-repository.jboss.org/nexus/content/groups/ea/org/jboss/fuse/${FUSE_ARTIFACT_ID}/${FUSE_VERSION}/${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip
-# in artifactory compiled by Perraca
-FUSE_DISTRO_URL=http://artifactory.hi.inet/artifactory/yum-iot-release/thirdparties/jboss-fuse/${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip
+# In artifactory the jboss fuse 6.2.0 has been compiled by Perraca
+
+export FUSE_DISTRO_URL="http://artifactory.hi.inet/artifactory/yum-iot-release/thirdparties/jboss-fuse/${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip"
 
 # Lets fail fast if any command in this script does succeed.
 set -e
+set -x
 
 #
 # Lets switch to the /opt/jboss dir
 #
 cd /opt/jboss
-echo ${FUSE_DISTRO_URL}
 # Download and extract the distro
 curl -O ${FUSE_DISTRO_URL}
 jar -xvf ${FUSE_ARTIFACT_ID}-${FUSE_VERSION}.zip
